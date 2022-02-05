@@ -1,0 +1,126 @@
+
+
+HEX: 0x032BA020
+Binary: 0000'0011'0010'1011'1010'0000'0010'0000
+OP Code: 000000 - 0
+Memory 1: 11001 - 1 + 8 + 16 = 25
+Memory 2: 01011 - 1 + 2 + 16 = 19
+Dest Reg: 10100 - 4 + 16 = 20
+Ignore: 00000 - 00000
+Func: 100000 - 32 - add
+Assembly: add $20, $25, $19
+
+
+HEX: 0x8CE90014
+Binary: 1000'1100'1110'1001'0000'0000'0001'0100
+OP Code: 100011 - 1 + 2 + 32 = 35 - lw
+Memory 1: 00111 - 1 + 2 + 4 = 7
+Memory 2: 01001 - 1 + 8 = 9
+Offset: 0000000000010100 - 4 + 16 = 20
+Assembly: lw $7, 20($9)
+
+
+HEX: 0x12A90003
+Binary: 0001'0010'1010'1001'0000'0000'0000'0011
+OP Code: 000100 - 4 - beq
+Memory 1: 10101 - 1 + 4 + 16 = 21
+Memory 2: 01001 - 1 + 8 = 9
+Offset: 0000000000000011 - 1 + 2 = 3
+Assembly: beq $21, 3($9)
+
+
+HEX:  0x022DA822
+Binary: 0000'0010'0010'1101'1010'1000'0010'0010
+OP Code: 000000 - 0 
+Memory 1: 10001 - 1 + 16 = 17
+Memory 2: 01101 - 1 + 4 + 8 = 13 
+Dest Reg: 10101 - 1 + 4 + 16 = 21
+Ignore: 00000 - 00000
+Func: 100010 - 2 + 32 = 34 - sub
+Assembly: sub $21, $17, $13
+
+
+HEX: 0xADB30020
+Binary: 1010'1101'1011'0011'0000'0000'0010'0000
+OP Code: 101011 - 1 + 2 + 8 + 32 = 43 - sw
+Memory 1: 01101 - 1 + 4 + 8 = 13
+Memory 2: 10011 - 1 + 2 + 16 = 19
+Offset: 0000000000100000 - 32
+Assembly: sw $13, 32(19)
+
+
+HEX: 0x02697824
+Binary: 0000'0011'0110'1001'0111'1000'0010'0100
+OP Code: 000000 - 0 
+Memory 1:11011 - 1 + 2 + 8 + 16 = 27
+Memory 2: 01001 - 1 + 8 = 9
+Dest Reg: 01111 - 1 + 2 + 4 + 8 = 15
+Ignore: 00000 - 00000
+Func: 100100 - 4 + 32 = 36 - and
+Assembly: and $15, $27 $9
+
+
+HEX: 0xAE8FFFF4
+Binary: 1010'1110'1000'1111'1111'1111'1111'0100
+OP Code: 101011 - 1 + 2 + 8 + 32 = 43 - sw
+Memory 1: 10100 - 4 + 16 = 20
+Memory 2: 01111 - 1 + 2 + 4 + 8 = 15
+Offset: 1111111111110100 - (Add 1) - 0000000000001011 + 1 = 000000000000001100 - 4 + 8 = -12
+Assembly: sw $20, -12($15)
+
+
+HEX: 0x018C6020
+Binary: 0000'0001'1000'1100'0110'0000'0010'0000
+OP Code: 000000 - 0 
+Memory 1: 01100 - 4 + 8 = 12
+Memory 2: 01100 - 4 + 8 = 12
+Dest Reg: 01100 - 4 + 8 = 12 
+Ignore: 00000 - 00000
+Func: 100000 - 32 - add
+Assembly: add $12, $12, $12
+
+
+HEX: 0x02A4A825
+Binary: 0000'0010'1010'0100'1010'1000'0010'0101
+OP Code: 000000 - 0
+Memory 1:10101 - 1 + 4 + 16 = 21
+Memory 2: 00100 - 4 
+Dest Reg: 10101 - 1 + 4 + 16 = 21
+Ignore: 00000 - 00000
+Func: 100101 - 1 + 4 + 32 = 37 - or
+Assembly: or $21, $21, $4
+
+
+HEX: 0x158FFFF7
+Binary: 0001'0101'1000'1111'1111'1111'1111'0111
+OP Code: 000101 - 1 + 4 = 5 - bne(Branch on Not Equal)
+Memory 1: 01100 - 4 + 8 = 12
+Memory 2: 01111 - 1 + 2 + 4 + 8 = 15
+Offset: 1111111111110111 - (2s Complement) - 0000000000001000 + 1 = 0000000000001001 - 1 + 8 = -9
+Assembly: bne $12, -9($15)
+
+
+HEX: 0x8ECDFFF0
+Binary: 1000'1110'1100'1101'1111'1111'1111'0000
+OP Code: 100011 - 1 + 2 + 32 = 35 - lw
+Memory 1: 10110 - 2 + 4 + 16 = 22
+Memory 2: 01101 - 1 + 4 + 8 = 13
+Offset: 1111111111110000 - (2s Complement) - 0000000000001111 + 1 = 0000000000010000 = -16
+Assembly: lw $22, -16($13)
+
+
+
+Requirements for project
+Assume that the first instruction begins at address hex 9A040
+You must output the address along with the instruction.
+
+Show addresses in hex. All other values should be in decimal, which is what an assembler defaults to. For
+any load or store instructions, show the offset value as a signed decimal number.
+
+For the branch instructions (beq, bne), don't try to invent a label for the destination to branch to
+9A05C beq $7, $8, address 9A080
+
+Destination always first in R-format, followed by s1 then s2
+ex. func $dest $s1, $s2
+
+Using a short will take care of twos complement with offset (aka make offset a short to not have to calc twos complement)
