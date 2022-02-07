@@ -16,7 +16,7 @@
 #include "InstructionSet.h"
 #include "MIPSInstructionMaps.h"
 
-class RFormat:public InstructionSet {
+class RFormat:public InstructionSet{
 
 public:
     // --- Constructor ---
@@ -43,7 +43,11 @@ public:
     unsigned int getFuncCode() const;
 
     // --- Virtual Write & Print Functions ---
-    virtual void writeToFile(std::string filepath) const override;
+
+    // Needs implementation or writing from array of addresses?
+    // Not override for some reason????
+    virtual void writeToFile(std::string filepath) const;
+
     virtual void writeToTerminal() const override;
 
     // --- Destructor ---
@@ -56,6 +60,8 @@ private:
     unsigned int memory2{};
     unsigned int destReg{};
     unsigned int funcCode{};
+    std::string writtenOpCode{};
+    std::string writtenFuncCode{};
 
 };
 

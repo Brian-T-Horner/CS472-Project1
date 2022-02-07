@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Project1.dir/InstructionSet.cpp.obj"
-  "CMakeFiles/Project1.dir/RFormat.cpp.obj"
   "CMakeFiles/Project1.dir/main.cpp.obj"
   "Project1.exe"
   "Project1.exe.manifest"

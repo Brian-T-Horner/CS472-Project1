@@ -13,7 +13,7 @@
 // User Built Includes
 #include "InstructionSet.h"
 #include "RFormat.h"
-#include "MIPSInstructionMaps.h"
+//#include "MIPSInstructionMaps.h"
 
 std::bitset<6> CalcOpCode(int originalHex); //Calculates OP Code
 unsigned int CalcRFormat(int OriginalHex); //Calculates R Format Instruction
@@ -30,6 +30,7 @@ int main() {
     CalcRFormat(test2);
     std::cout << CalcInstructionFormat(test2);
     return 0;
+    RFormat test1;
 }
 
 

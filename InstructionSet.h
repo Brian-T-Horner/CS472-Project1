@@ -14,16 +14,18 @@ class InstructionSet {
 
 public:
 
-    // --- Constructor ---
+    // --- Constructors ---
     InstructionSet(int hexInstruction, unsigned int currentAddress);
+    InstructionSet(); // Needed for class inheritance
 
     // --- Destructor ---
     ~InstructionSet();
 
-    // --- Set Functions - Private ---
 private:
-    void setHexInstruction(int Instruction); // Needs implementation
-    void setAddress(unsigned int address); // Needs implementation
+    // --- Set Functions - Private?? ---
+    // Private? Needs implementation of checks
+    void setHexInstruction(int Instruction);
+    void setAddress(unsigned int address);
 
     // --- Get Functions - Public ---
 public:
@@ -40,8 +42,8 @@ public:
 
     // --- Data Members ---
 private:
-    int hexInstruction;
-    unsigned int address;
+    int hexInstruction{};
+    unsigned int address{};
 
 };
 

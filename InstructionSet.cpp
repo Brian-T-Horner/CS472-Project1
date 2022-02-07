@@ -12,7 +12,7 @@
 // User Built Includes
 #include "InstructionSet.h"
 
-// --- Constructor ---
+// --- Constructors ---
 InstructionSet::InstructionSet(int hexInstruction,
                                unsigned int currentAddress) {
     //Might cause a problem with conversion?
@@ -20,17 +20,21 @@ InstructionSet::InstructionSet(int hexInstruction,
     this->hexInstruction = hexInstruction;
 }
 
+InstructionSet::InstructionSet(){}
+
 // --- Get Functions ---
 unsigned int InstructionSet::getAddress() const {return address;}
 int InstructionSet::getHexInstruction() const {return hexInstruction;}
 
 // --- Set Functions ---
-void InstructionSet::setHexInstruction(int Instruction) {
-    // Needs implementation
+void InstructionSet::setHexInstruction(int instruction) {
+    // Needs implementation of checks
+    this-> hexInstruction = instruction;
 }
 
 void InstructionSet::setAddress(unsigned int address) {
-    // Needs implementation
+    // Needs implementation of checks
+    this->address = address;
 }
 
 // --- Virtual Functions ---

@@ -80,18 +80,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/bhorn/Desktop/Programming Stuff/C++ Projects/CS472/Project1/InstructionSet.cpp">
-			<Option target="Project1"/>
-		</Unit>
-		<Unit filename="C:/Users/bhorn/Desktop/Programming Stuff/C++ Projects/CS472/Project1/InstructionSet.h">
-			<Option target="Project1"/>
-		</Unit>
-		<Unit filename="C:/Users/bhorn/Desktop/Programming Stuff/C++ Projects/CS472/Project1/RFormat.cpp">
-			<Option target="Project1"/>
-		</Unit>
-		<Unit filename="C:/Users/bhorn/Desktop/Programming Stuff/C++ Projects/CS472/Project1/RFormat.h">
-			<Option target="Project1"/>
-		</Unit>
 		<Unit filename="C:/Users/bhorn/Desktop/Programming Stuff/C++ Projects/CS472/Project1/main.cpp">
 			<Option target="Project1"/>
 		</Unit>
