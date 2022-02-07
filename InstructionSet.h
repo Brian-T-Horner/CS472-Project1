@@ -1,4 +1,5 @@
-// Class for Storing and Manipulating Hex Instructions into Assembly
+// Parent Class Specification for Storing and Manipulating Hex Instructions
+// into Assembly
 //
 // Author: Brian Horner
 // Edit History:
@@ -13,30 +14,31 @@ class InstructionSet {
 
 public:
 
-    // Constructor
-    InstructionSet(int hexInstruction, unsigned int currentAddress){
-        //Might cause a problem with conversion?
-        this->address = currentAddress;
-        this-> hexInstruction = hexInstruction;
-    };
-    // Destructor
+    // --- Constructor ---
+    InstructionSet(int hexInstruction, unsigned int currentAddress);
+
+    // --- Destructor ---
     ~InstructionSet();
 
-    // Set Functions - Private
+    // --- Set Functions - Private ---
 private:
-    void setHexInstruction(int Instruction);
-    void setAddress(unsigned int address);
+    void setHexInstruction(int Instruction); // Needs implementation
+    void setAddress(unsigned int address); // Needs implementation
 
-    // Get Functions - Public
+    // --- Get Functions - Public ---
 public:
     int getHexInstruction() const;
     unsigned int getAddress() const;
 
 
-    // Virtual Write & Print Functions
+    // --- Virtual Write & Print Functions ---
+
+    // Needs implementation or change to function on vector of instruction
+    // classes?????
     virtual void writeToFile(std::string filePath) const;
     virtual void writeToTerminal() const;
 
+    // --- Data Members ---
 private:
     int hexInstruction;
     unsigned int address;

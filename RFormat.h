@@ -19,36 +19,37 @@
 class RFormat:public InstructionSet {
 
 public:
-    // Constructor
+    // --- Constructor ---
     RFormat(int hexInstruction, unsigned int address);
 
-    // Calc Instructions Func
+    // --- Calc Instructions Funcs ---
     void calcOPCode();
     void calcInstructionSet();
 
 
 
-    // Set Functions
+    // --- Set Functions ---
 private:
     void setMemory1(unsigned int mem1);
     void setMemory2(unsigned int mem2);
     void setDestReg(unsigned int destReg);
     void setFuncCode(unsigned int funcCode);
 
-    // Get Functions
+    // --- Get Functions ---
 public:
     unsigned int getMemory1() const;
     unsigned int getMemory2() const;
     unsigned int getDestReg() const;
     unsigned int getFuncCode() const;
 
-    // Virtual Write & Print Functions
+    // --- Virtual Write & Print Functions ---
     virtual void writeToFile(std::string filepath) const override;
     virtual void writeToTerminal() const override;
 
-    // Destructor
+    // --- Destructor ---
     ~RFormat();
 
+    // --- Data Members ---
 private:
     unsigned int OpCode{};
     unsigned int memory1{};
@@ -56,8 +57,6 @@ private:
     unsigned int destReg{};
     unsigned int funcCode{};
 
-
 };
 
-
-#endif //PROJECT1_RFORMAT_H
+#endif
