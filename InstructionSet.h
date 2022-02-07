@@ -26,19 +26,12 @@ public:
 private:
     void setHexInstruction(int Instruction);
     void setAddress(unsigned int address);
-    void setOpCode (unsigned int code);
-    void setMemory1 (unsigned int mem1);
-    void setMemory2 (unsigned int mem2);
-    void setFormat (char formatChar);
 
     // Get Functions - Public
 public:
     int getHexInstruction() const;
     unsigned int getAddress() const;
-    unsigned int getOpCode() const;
-    unsigned int getMemory1() const;
-    unsigned int getMemory2() const;
-    char getFormat() const;
+
 
     // Virtual Write & Print Functions
     virtual void writeToFile(std::string filePath) const;
@@ -47,10 +40,7 @@ public:
 private:
     int hexInstruction;
     unsigned int address;
-    unsigned int OpCode{};
-    unsigned int memory1{};
-    unsigned int memory2{};
-    char format{};
+
 };
 
 

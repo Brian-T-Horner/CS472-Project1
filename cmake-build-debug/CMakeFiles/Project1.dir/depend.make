@@ -3,4 +3,6 @@
 
 CMakeFiles/Project1.dir/main.cpp.obj: \
  ../InstructionSet.h \
+ ../MIPSInstructionMaps.h \
+ ../RFormat.h \
  ../main.cpp
