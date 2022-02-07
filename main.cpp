@@ -11,7 +11,7 @@
 
 // User Built Includes
 
-unsigned int CalcOpCode(int originalHex); //Calculates OP Code
+std::bitset<6> CalcOpCode(int originalHex); //Calculates OP Code
 unsigned int CalcRFormat(int OriginalHex); //Calculates R Format Instruction
 
 
@@ -65,50 +65,20 @@ std::map<unsigned int, std::string> FuncCodeDict = {
 unsigned int startMem{0x9A040};
 
 int main() {
-//    unsigned int test1 = 0x8CE90014;
-//    std::cout << "Test hex instruction in decimal is " <<test1 <<std::endl;
-//    std::cout << "Test hex instruction in binary is " <<std::bitset<32>
-//            (test1)<<std::endl;
-//    std::cout << "Test hex instruction in hex is " << std::hex <<test1
-//    <<std::endl;
-//
-//    unsigned int OpCodeMask;
-//    OpCodeMask = 0b11111100000000000000000000000000;
-//    unsigned int OpCodeShiftTest;
-//    OpCodeShiftTest = 0b111111<<26;
-//    std::cout << "Did the shift work?  " <<bool(OpCodeMask ==
-//    OpCodeShiftTest) <<std::endl;
-//    std::cout << "OpCodeMaskManual is: " <<OpCodeMask << "\n"
-//                                                         "OpCodeTestWithShift"
-//                                                         " is: "
-//                                                         <<OpCodeShiftTest
-//                                                         <<std::endl;
-//    std::cout << "Mask in binary is " << std::bitset<32>(OpCodeMask)
-//            <<std::endl;
-//    unsigned int OpcodeResult = (test1 & OpCodeShiftTest)>>26;
-//    std::cout << "Return Op Code after shift is " <<std::bitset<6>
-//            (OpcodeResult) <<std::endl;
-//
-//    std::cout << "Testing OpCode Func " <<std::bitset<6>(CalcOpCode(test1))
-//    <<std::endl;
+
 
 unsigned int test2 = 0x022DA822;
-//std::cout << std::bitset<32>(test2<<6)<<std::endl;
-//unsigned int mem1Mask = (0b11111<<27);
-//std::cout << std::bitset<32>(mem1Mask) <<std::endl;
+    std::cout << CalcOpCode(test2)<<std::endl;
     CalcRFormat(test2);
-//std::cout <<std::bitset<32>(0x022DA822)<<std::endl;
-////std::cout << "Left shift: ";
-//std::cout << std::bitset<32>((0b11111<<26)>>5)<<std::endl;
     return 0;
 }
 
 // Start of checks
-unsigned int CalcOpCode(int originalHex){
+std::bitset<6> CalcOpCode(int originalHex){
     // Calculates the OP Code
     unsigned int OpCodeMask = 0b111111<<26;
     unsigned int OpCode = OpCodeMask & originalHex;
-    return OpCode >> 26;
+    return std::bitset<6>(OpCode >> 26);
 
 }
 
