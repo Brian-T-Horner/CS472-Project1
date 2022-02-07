@@ -3,6 +3,7 @@
 // Author: Brian Horner
 // Edit History:
 // 2/5/2022 - Initial Version and Establishing Git Repo
+// 2/5/2022 -
 
 // Standard Library Includes
 #include <iostream>
@@ -10,10 +11,11 @@
 #include <map>
 
 // User Built Includes
+#include "InstructionSet.h"
 
 std::bitset<6> CalcOpCode(int originalHex); //Calculates OP Code
 unsigned int CalcRFormat(int OriginalHex); //Calculates R Format Instruction
-
+char CalcInstructionFormat(int OriginalHex); // Calcs the instruction format
 
 // Map for opcodes
 std::map<unsigned int, std::string> OPCodeDict{
@@ -67,13 +69,28 @@ unsigned int startMem{0x9A040};
 int main() {
 
 
-unsigned int test2 = 0x022DA822;
+ int test2 = 0x022DA822;
+
     std::cout << CalcOpCode(test2)<<std::endl;
     CalcRFormat(test2);
+    std::cout << CalcInstructionFormat(test2);
     return 0;
 }
 
+
 // Start of checks
+char CalcInstructionFormat(int OriginalHex){
+    // Calcs the instruction format
+    std::bitset<6> OpCode = CalcOpCode(OriginalHex);
+    if (OpCode == 0){
+        return 'R';
+    }else{
+        return 'I';
+    }
+}
+
+
+
 std::bitset<6> CalcOpCode(int originalHex){
     // Calculates the OP Code
     unsigned int OpCodeMask = 0b111111<<26;
@@ -103,3 +120,4 @@ unsigned int CalcRFormat(int OriginalHex){
         }
     }
 }
+
