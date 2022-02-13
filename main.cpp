@@ -29,8 +29,7 @@ int main() {
     std::cout << CalcOpCode(test2)<<std::endl;
     CalcRFormat(test2);
     std::cout << CalcInstructionFormat(test2);
-    return 0;
-    RFormat test1;
+    RFormat test1(test2, startMem);
 }
 
 

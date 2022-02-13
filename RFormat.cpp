@@ -16,7 +16,7 @@
 RFormat::RFormat(int hexInstruction, unsigned int address): InstructionSet
 (hexInstruction, address) {
 
-    // Calc calcs here
+    // Calc funcs here
 }
 
 // --- Calc Instructions Funcs ---
