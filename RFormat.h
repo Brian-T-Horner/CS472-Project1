@@ -20,7 +20,7 @@ class RFormat:public InstructionSet{
 
 public:
     // --- Constructor ---
-    RFormat(int64_t hexInstruction, unsigned int address);
+    RFormat(unsigned int hexInstruction, unsigned int address);
 
     // --- Calc Instructions Funcs ---
     void calcOPCode();

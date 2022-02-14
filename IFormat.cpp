@@ -41,7 +41,8 @@ std::map<unsigned int, std::string> OPCodeDict{
 unsigned int branches[2] = {0b000100, 0b000101}; // 2 more????
 
 // --- Constructor ---
-IFormat::IFormat(int64_t hexInstruction, unsigned int address): InstructionSet
+IFormat::IFormat(unsigned int hexInstruction, unsigned int address):
+InstructionSet
 (hexInstruction, address) {
 
     calcOPCode();
@@ -113,7 +114,7 @@ void IFormat::calcBranch() {
 }
 
 
-// --- Set Functions ---
+// --- Set Functions ---a-
 
 // --- Get Functions ---
 unsigned int IFormat::getOpCode() const {return this->OpCode;}

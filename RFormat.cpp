@@ -40,7 +40,7 @@ std::map<unsigned int, std::string> FuncCodeDict = {
 
 
 // --- Constructor ---
-RFormat::RFormat(int64_t hexInstruction, unsigned int address):
+RFormat::RFormat(unsigned int hexInstruction, unsigned int address):
 InstructionSet
 (hexInstruction, address) {
 
