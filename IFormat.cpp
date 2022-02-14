@@ -47,7 +47,7 @@ IFormat::IFormat(int64_t hexInstruction, unsigned int address): InstructionSet
     calcOPCode();
     boolBranch();
     calcInstructionSet();
-    if (this->branchYesOrNo == true){
+    if (this->branchYesOrNo){
         calcBranch();
     }
     writeToTerminal();
@@ -118,4 +118,15 @@ short IFormat::getOffset() const {return this->Offset;}
 unsigned int IFormat::getBranchMemory() const {return this->branchMemory;}
 
 // --- Virtual Print Function ---
-
+void IFormat::writeToTerminal() const {
+    InstructionSet::writeToTerminal();
+    if (this->branchYesOrNo){
+        std::cout << OPCodeDict.at(this->OpCode) << " $" <<this->destReg <<
+        ", $"<<this->memory1 << "address" <<std::hex<<std::uppercase <<
+        branchMemory<< std::dec <<std::nouppercase<<
+        std::endl;
+    }else{
+    std::cout << OPCodeDict.at(this->OpCode) << " $" <<this->destReg <<
+    ", "<<this->Offset << "($" <<this->memory1 << ")"<<std::endl;
+}
+}
