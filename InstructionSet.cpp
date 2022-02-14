@@ -20,7 +20,6 @@ InstructionSet::InstructionSet(int hexInstruction,
     this->hexInstruction = hexInstruction;
 }
 
-InstructionSet::InstructionSet(){}
 
 // --- Get Functions ---
 unsigned int InstructionSet::getAddress() const {return address;}
@@ -42,8 +41,6 @@ void InstructionSet::writeToTerminal() const {
     std::cout << address << " ";
 }
 
-void InstructionSet::writeToFile(std::string filePath) const {
-    // Needs implementation
-}
+
 // --- Destructor ---
 InstructionSet::~InstructionSet() {}

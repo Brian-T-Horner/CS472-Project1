@@ -14,7 +14,7 @@
 
 // User Built Includes
 #include "InstructionSet.h"
-#include "MIPSInstructionMaps.h"
+
 
 class RFormat:public InstructionSet{
 
@@ -28,12 +28,12 @@ public:
 
 
 
-    // --- Set Functions ---
-private:
-    void setMemory1(unsigned int mem1);
-    void setMemory2(unsigned int mem2);
-    void setDestReg(unsigned int destReg);
-    void setFuncCode(unsigned int funcCode);
+    // --- Set Functions ---    DO I EVEN WANT THESE
+//private:
+//    void setMemory1(unsigned int mem1);
+//    void setMemory2(unsigned int mem2);
+//    void setDestReg(unsigned int destReg);
+//    void setFuncCode(unsigned int funcCode);
 
     // --- Get Functions ---
 public:
@@ -42,16 +42,11 @@ public:
     unsigned int getDestReg() const;
     unsigned int getFuncCode() const;
 
-    // --- Virtual Write & Print Functions ---
-
-    // Needs implementation or writing from array of addresses?
-    // Not override for some reason????
-    virtual void writeToFile(std::string filepath) const;
-
+    // --- Virtual Print Function ---
     virtual void writeToTerminal() const override;
 
     // --- Destructor ---
-    ~RFormat();
+    virtual ~RFormat();
 
     // --- Data Members ---
 private:

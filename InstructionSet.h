@@ -16,10 +16,10 @@ public:
 
     // --- Constructors ---
     InstructionSet(int hexInstruction, unsigned int currentAddress);
-    InstructionSet(); // Needed for class inheritance
+
 
     // --- Destructor ---
-    ~InstructionSet();
+    virtual ~InstructionSet();
 
 private:
     // --- Set Functions - Private?? ---
@@ -33,11 +33,7 @@ public:
     unsigned int getAddress() const;
 
 
-    // --- Virtual Write & Print Functions ---
-
-    // Needs implementation or change to function on vector of instruction
-    // classes?????
-    virtual void writeToFile(std::string filePath) const;
+    // --- Virtual Write Function ---
     virtual void writeToTerminal() const;
 
     // --- Data Members ---

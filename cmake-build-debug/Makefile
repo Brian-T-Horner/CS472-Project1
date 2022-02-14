@@ -128,6 +128,54 @@ Project1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/build
 .PHONY : Project1/fast
 
+InstructionSet.obj: InstructionSet.cpp.obj
+.PHONY : InstructionSet.obj
+
+# target to build an object file
+InstructionSet.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/InstructionSet.cpp.obj
+.PHONY : InstructionSet.cpp.obj
+
+InstructionSet.i: InstructionSet.cpp.i
+.PHONY : InstructionSet.i
+
+# target to preprocess a source file
+InstructionSet.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/InstructionSet.cpp.i
+.PHONY : InstructionSet.cpp.i
+
+InstructionSet.s: InstructionSet.cpp.s
+.PHONY : InstructionSet.s
+
+# target to generate assembly for a file
+InstructionSet.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/InstructionSet.cpp.s
+.PHONY : InstructionSet.cpp.s
+
+RFormat.obj: RFormat.cpp.obj
+.PHONY : RFormat.obj
+
+# target to build an object file
+RFormat.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/RFormat.cpp.obj
+.PHONY : RFormat.cpp.obj
+
+RFormat.i: RFormat.cpp.i
+.PHONY : RFormat.i
+
+# target to preprocess a source file
+RFormat.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/RFormat.cpp.i
+.PHONY : RFormat.cpp.i
+
+RFormat.s: RFormat.cpp.s
+.PHONY : RFormat.s
+
+# target to generate assembly for a file
+RFormat.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/RFormat.cpp.s
+.PHONY : RFormat.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -161,6 +209,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Project1
+	@echo ... InstructionSet.obj
+	@echo ... InstructionSet.i
+	@echo ... InstructionSet.s
+	@echo ... RFormat.obj
+	@echo ... RFormat.i
+	@echo ... RFormat.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
