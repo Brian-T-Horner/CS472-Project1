@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Project1.dir/IFormat.cpp.obj"
   "CMakeFiles/Project1.dir/InstructionSet.cpp.obj"
   "CMakeFiles/Project1.dir/RFormat.cpp.obj"
   "CMakeFiles/Project1.dir/main.cpp.obj"

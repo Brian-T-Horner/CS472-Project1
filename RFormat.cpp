@@ -4,6 +4,8 @@
 // Author: Brian Horner
 // Edit History:
 // 2/6/2022 Initial Version
+// 2/6/2022 Added Initial Methods
+// 2/13/2022 Fixed Bitwise Shifts
 
 // Standard Library Includes
 #include <iostream>
@@ -38,7 +40,8 @@ std::map<unsigned int, std::string> FuncCodeDict = {
 
 
 // --- Constructor ---
-RFormat::RFormat(int hexInstruction, unsigned int address): InstructionSet
+RFormat::RFormat(int64_t hexInstruction, unsigned int address):
+InstructionSet
 (hexInstruction, address) {
 
     calcOPCode();
@@ -66,7 +69,6 @@ void RFormat::calcInstructionSet() {
                 break;
             case 1:
                 MaskShift -= 5;
-                std::cout << "Mask Shift is now" <<MaskShift <<std::endl;
                 this->memory1 = ((MemMask<<MaskShift)&getHexInstruction())
                         >>MaskShift;
                 break;

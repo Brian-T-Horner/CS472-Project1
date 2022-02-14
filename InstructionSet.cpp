@@ -13,7 +13,7 @@
 #include "InstructionSet.h"
 
 // --- Constructors ---
-InstructionSet::InstructionSet(int hexInstruction,
+InstructionSet::InstructionSet(int64_t hexInstruction,
                                unsigned int currentAddress) {
     //Might cause a problem with conversion?
     this->address = currentAddress;
@@ -23,10 +23,10 @@ InstructionSet::InstructionSet(int hexInstruction,
 
 // --- Get Functions ---
 unsigned int InstructionSet::getAddress() const {return address;}
-int InstructionSet::getHexInstruction() const {return hexInstruction;}
+int64_t InstructionSet::getHexInstruction() const {return hexInstruction;}
 
 // --- Set Functions ---
-void InstructionSet::setHexInstruction(int instruction) {
+void InstructionSet::setHexInstruction(int64_t instruction) {
     // Needs implementation of checks
     this-> hexInstruction = instruction;
 }
@@ -38,7 +38,8 @@ void InstructionSet::setAddress(unsigned int address) {
 
 // --- Virtual Functions ---
 void InstructionSet::writeToTerminal() const {
-    std::cout << address << " ";
+    std::cout << std::hex << std::uppercase<< address <<
+    std::nouppercase<<std::dec<< " ";
 }
 
 

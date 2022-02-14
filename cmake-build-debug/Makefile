@@ -128,6 +128,30 @@ Project1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/build
 .PHONY : Project1/fast
 
+IFormat.obj: IFormat.cpp.obj
+.PHONY : IFormat.obj
+
+# target to build an object file
+IFormat.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/IFormat.cpp.obj
+.PHONY : IFormat.cpp.obj
+
+IFormat.i: IFormat.cpp.i
+.PHONY : IFormat.i
+
+# target to preprocess a source file
+IFormat.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/IFormat.cpp.i
+.PHONY : IFormat.cpp.i
+
+IFormat.s: IFormat.cpp.s
+.PHONY : IFormat.s
+
+# target to generate assembly for a file
+IFormat.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/IFormat.cpp.s
+.PHONY : IFormat.cpp.s
+
 InstructionSet.obj: InstructionSet.cpp.obj
 .PHONY : InstructionSet.obj
 
@@ -209,6 +233,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Project1
+	@echo ... IFormat.obj
+	@echo ... IFormat.i
+	@echo ... IFormat.s
 	@echo ... InstructionSet.obj
 	@echo ... InstructionSet.i
 	@echo ... InstructionSet.s

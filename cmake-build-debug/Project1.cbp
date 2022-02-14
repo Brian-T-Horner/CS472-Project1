@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/bhorn/Desktop/Programming Stuff/C++ Projects/CS472/Project1/IFormat.cpp">
+			<Option target="Project1"/>
+		</Unit>
+		<Unit filename="C:/Users/bhorn/Desktop/Programming Stuff/C++ Projects/CS472/Project1/IFormat.h">
+			<Option target="Project1"/>
+		</Unit>
 		<Unit filename="C:/Users/bhorn/Desktop/Programming Stuff/C++ Projects/CS472/Project1/InstructionSet.cpp">
 			<Option target="Project1"/>
 		</Unit>

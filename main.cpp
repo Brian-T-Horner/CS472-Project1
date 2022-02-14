@@ -45,34 +45,14 @@ std::map<unsigned int, std::string> OPCodeDict{
     {0b111110, "sdc2"},
     };
 
-//// Map for Function Codes
-//std::map<unsigned int, std::string> FuncCodeDict = {
-//        {0b000000, "sll"},      {0b000010, "srl"},
-//        {0b000011, "sra"},      {0b000100, "sllv"},
-//        {0b000110, "srlv"},     {0b000111, "srav"},
-//        {0b001000, "jr"},       {0b001001, "jalr"},
-//        {0b001010, "movz"},     {0b001011, "movn"},
-//        {0b001100, "syscall"},  {0b001101, "break"},
-//        {0b001111, "sync"},     {0b010000, "mfhi"},
-//        {0b010001, "mthi"},     {0b010010, "mflo"},
-//        {0b010011, "mtlo"},     {0b011000, "multi"},
-//        {0b011001, "multiu"},   {0b011010, "div"},
-//        {0b011011, "divu"},     {0b100000, "add"},
-//        {0b100001, "addu"},     {0b100010, "sub"},
-//        {0b100011, "subu"},     {0b100100, "and"},
-//        {0b100101, "or"},       {0b100110, "xor"},
-//        {0b100111, "nor"},      {0b101010, "slt"},
-//        {0b101011, "sltu"},     {0b110000, "tge"},
-//        {0b110001, "tgeu"},     {0b110010, "tlt"},
-//        {0b110011, "tltu"},     {0b110100, "teq"},
-//        {0b110110, "tne"},
-//        };
-
+int64_t OPCODES[11] = {0x032BA020, 0x8CE90014, 0x12A90003, 0x022DA822,
+                     0xADB30020, 0x02697824, 0xAE8FFFF4, 0x018C6020,
+                     0x02A4A825, 0x158FFFF7, 0x8ECDFFF0};
 
 int main() {
 
 
-    int test2 = 0x018C6020;
+    int64_t test2 = 0x018C6020;
 
 //    std::cout << CalcOpCode(test2)<<std::endl;
 //    CalcRFormat(test2);
