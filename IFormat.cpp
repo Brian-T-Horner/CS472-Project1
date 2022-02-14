@@ -90,7 +90,7 @@ void IFormat::calcInstructionSet() {
                     break;
                 case 3:
                     MaskShift -=16;
-                    this->Offset = ((MemMask<<MaskShift)& getHexInstruction())
+                    this->offset = ((MemMask<<MaskShift)& getHexInstruction())
                             >>MaskShift;
                     break;
                 default:
@@ -101,10 +101,15 @@ void IFormat::calcInstructionSet() {
 }
 
 void IFormat::calcBranch() {
-    short OffsetShift = 0b00;
     unsigned int startBranchAddy = this->getAddress() + 4;
-    short correctOffset = Offset << OffsetShift;
-    branchMemory = correctOffset +startBranchAddy;
+    signed short correctOffset = offset << 2;
+    branchMemory = correctOffset + startBranchAddy;
+
+//    std::cout << "Start Branch Addy " <<std::hex<<std::uppercase<<
+//    startBranchAddy <<std::dec<<std::nouppercase
+//    <<std::endl;
+//    std::cout << "Original Offset " <<this->offset <<std::endl;
+//    std::cout << "Correct Offset " <<correctOffset <<std::endl;
 }
 
 
@@ -114,7 +119,7 @@ void IFormat::calcBranch() {
 unsigned int IFormat::getOpCode() const {return this->OpCode;}
 unsigned int IFormat::getMemory1() const {return this->memory1;}
 unsigned int IFormat::getDestReg() const {return this->destReg;}
-short IFormat::getOffset() const {return this->Offset;}
+signed short IFormat::getOffset() const {return this->offset;}
 unsigned int IFormat::getBranchMemory() const {return this->branchMemory;}
 
 // --- Virtual Print Function ---
@@ -122,11 +127,11 @@ void IFormat::writeToTerminal() const {
     InstructionSet::writeToTerminal();
     if (this->branchYesOrNo){
         std::cout << OPCodeDict.at(this->OpCode) << " $" <<this->destReg <<
-        ", $"<<this->memory1 << "address" <<std::hex<<std::uppercase <<
+        ", $"<<this->memory1 << " address " <<std::hex<<std::uppercase <<
         branchMemory<< std::dec <<std::nouppercase<<
         std::endl;
     }else{
     std::cout << OPCodeDict.at(this->OpCode) << " $" <<this->destReg <<
-    ", "<<this->Offset << "($" <<this->memory1 << ")"<<std::endl;
+    ", "<<this->offset << "($" <<this->memory1 << ")"<<std::endl;
 }
 }

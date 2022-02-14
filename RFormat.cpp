@@ -47,6 +47,7 @@ InstructionSet
     calcOPCode();
     calcInstructionSet();
     writeToTerminal();
+
 }
 
 // --- Destructor ---

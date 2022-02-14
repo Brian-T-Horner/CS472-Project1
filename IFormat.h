@@ -47,7 +47,7 @@ private:
     unsigned int OpCode{};
     unsigned int memory1{};
     unsigned int destReg{};
-    short Offset{};
+    signed short offset{};
     unsigned int branchMemory{};
     bool branchYesOrNo{};
 };
