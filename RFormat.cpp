@@ -6,6 +6,7 @@
 // 2/6/2022 Initial Version
 // 2/6/2022 Added Initial Methods
 // 2/13/2022 Fixed Bitwise Shifts
+// 2/16/2022 Added detailed comments
 
 // Standard Library Includes
 #include <iostream>
