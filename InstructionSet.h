@@ -15,7 +15,7 @@ class InstructionSet {
 public:
 
     // --- Constructors ---
-    InstructionSet(unsigned int hexInstruction, unsigned int currentAddress);
+    InstructionSet(int64_t hexInstruction, unsigned int currentAddress);
 
 
     // --- Destructor ---
@@ -24,12 +24,12 @@ public:
 private:
     // --- Set Functions - Private?? ---
     // Private? Needs implementation of checks
-    void setHexInstruction(unsigned int Instruction);
+    void setHexInstruction(int64_t Instruction);
     void setAddress(unsigned int address);
 
     // --- Get Functions - Public ---
 public:
-    unsigned int getHexInstruction() const;
+    int64_t getHexInstruction() const;
     unsigned int getAddress() const;
 
 
@@ -38,7 +38,7 @@ public:
 
     // --- Data Members ---
 private:
-    unsigned int hexInstruction{};
+    int64_t hexInstruction{};
     unsigned int address{};
 
 };

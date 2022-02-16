@@ -20,21 +20,11 @@ class RFormat:public InstructionSet{
 
 public:
     // --- Constructor ---
-    RFormat(unsigned int hexInstruction, unsigned int address);
+    RFormat(int64_t hexInstruction, unsigned int address);
 
     // --- Calc Instructions Funcs ---
     void calcOPCode();
     void calcInstructionSet();
-
-
-
-    // --- Set Functions ---    DO I EVEN WANT THESE
-//private:
-//    void setMemory1(unsigned int mem1);
-//    void setMemory2(unsigned int mem2);
-//    void setDestReg(unsigned int destReg);
-//    void setFuncCode(unsigned int funcCode);+
-
 
     // --- Get Functions ---
 public:

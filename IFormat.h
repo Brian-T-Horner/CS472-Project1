@@ -17,7 +17,7 @@
 class IFormat:public InstructionSet {
 public:
     // --- Constructor ---
-    IFormat(unsigned int hexInstruction, unsigned int address);
+    IFormat(int64_t hexInstruction, unsigned int address);
 
     // --- Calc Instructions Funcs ---
     void calcOPCode();

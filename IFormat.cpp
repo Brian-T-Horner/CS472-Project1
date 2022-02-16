@@ -41,10 +41,9 @@ std::map<unsigned int, std::string> OPCodeDict{
 unsigned int branches[2] = {0b000100, 0b000101}; // 2 more????
 
 // --- Constructor ---
-IFormat::IFormat(unsigned int hexInstruction, unsigned int address):
+IFormat::IFormat(int64_t hexInstruction, unsigned int address):
 InstructionSet
 (hexInstruction, address) {
-
     calcOPCode();
     boolBranch();
     calcInstructionSet();
@@ -71,8 +70,8 @@ void IFormat::boolBranch() {
 }
 
 void IFormat::calcInstructionSet() {
-        unsigned int MemMask = 0b11111;
-        unsigned int FuncMask = 0b1111111111111111;
+        signed short MemMask = 0b11111;
+        unsigned int OffsetMask = 0b1111111111111111;
         unsigned int MaskShift{32};
         for(unsigned int i{0}; i<4; i++){
             switch(i){
@@ -91,7 +90,7 @@ void IFormat::calcInstructionSet() {
                     break;
                 case 3:
                     MaskShift -=16;
-                    this->offset = ((MemMask<<MaskShift)& getHexInstruction())
+                    this->offset = ((OffsetMask<<MaskShift)& getHexInstruction())
                             >>MaskShift;
                     break;
                 default:
@@ -105,16 +104,8 @@ void IFormat::calcBranch() {
     unsigned int startBranchAddy = this->getAddress() + 4;
     signed short correctOffset = offset << 2;
     branchMemory = correctOffset + startBranchAddy;
-
-//    std::cout << "Start Branch Addy " <<std::hex<<std::uppercase<<
-//    startBranchAddy <<std::dec<<std::nouppercase
-//    <<std::endl;
-//    std::cout << "Original Offset " <<this->offset <<std::endl;
-//    std::cout << "Correct Offset " <<correctOffset <<std::endl;
 }
 
-
-// --- Set Functions ---a-
 
 // --- Get Functions ---
 unsigned int IFormat::getOpCode() const {return this->OpCode;}

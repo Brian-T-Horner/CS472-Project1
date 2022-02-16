@@ -13,7 +13,7 @@
 #include "InstructionSet.h"
 
 // --- Constructors ---
-InstructionSet::InstructionSet(unsigned int hexInstruction,
+InstructionSet::InstructionSet(int64_t hexInstruction,
                                unsigned int currentAddress) {
     //Might cause a problem with conversion?
     this->address = currentAddress;
@@ -23,10 +23,10 @@ InstructionSet::InstructionSet(unsigned int hexInstruction,
 
 // --- Get Functions ---
 unsigned int InstructionSet::getAddress() const {return address;}
-unsigned int InstructionSet::getHexInstruction() const {return hexInstruction;}
+int64_t InstructionSet::getHexInstruction() const {return hexInstruction;}
 
 // --- Set Functions ---
-void InstructionSet::setHexInstruction(unsigned int instruction) {
+void InstructionSet::setHexInstruction(int64_t instruction) {
     // Needs implementation of checks
     this-> hexInstruction = instruction;
 }

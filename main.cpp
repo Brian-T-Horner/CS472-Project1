@@ -16,13 +16,13 @@
 #include "IFormat.h"
 
 
-std::bitset<6> CalcOpCode(unsigned int originalHex); //Calculates OP Code
-char CalcInstructionFormat(unsigned int OriginalHex); // Calcs the instruction
+std::bitset<6> CalcOpCode(int64_t originalHex); //Calculates OP Code
+char CalcInstructionFormat(int64_t OriginalHex); // Calcs the instruction
 // format
 
 
 
-unsigned int OPCODES[11] = {0x032BA020, 0x8CE90014, 0x12A90003, 0x022DA822,
+int64_t OPCODES[11] = {0x032BA020, 0x8CE90014, 0x12A90003, 0x022DA822,
                      0xADB30020, 0x02697824, 0xAE8FFFF4, 0x018C6020,
                      0x02A4A825, 0x158FFFF7, 0x8ECDFFF0};
 
@@ -44,7 +44,7 @@ int main() {
 
 
 // Start of checks
-char CalcInstructionFormat(unsigned int OriginalHex){
+char CalcInstructionFormat(int64_t OriginalHex){
     // Calcs the instruction format
     std::bitset<6> OpCode = CalcOpCode(OriginalHex);
     if (OpCode == 0){
@@ -56,7 +56,7 @@ char CalcInstructionFormat(unsigned int OriginalHex){
 
 
 
-std::bitset<6> CalcOpCode(unsigned int originalHex){
+std::bitset<6> CalcOpCode(int64_t originalHex){
     // Calculates the OP Code
     unsigned int OpCodeMask = 0b111111<<26;
     unsigned int OpCode = OpCodeMask & originalHex;
