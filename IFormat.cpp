@@ -5,6 +5,7 @@
 // Edit History:
 // 2/13/2022 Initial Version
 // 2/13/2022 Added calc, constructor and get funcs
+// 2/16/2022 Added detailed comments
 
 // Standard Library Includes
 #include <iostream>
@@ -38,7 +39,7 @@ std::map<unsigned int, std::string> OPCodeDict{
     {0b111110, "sdc2"},
     };
 
-unsigned int branches[2] = {0b000100, 0b000101}; // 2 more????
+unsigned int branches[2] = {0b000100, 0b000101}; // Array for branch instructions references
 
 // --- Constructor ---
 IFormat::IFormat(int64_t hexInstruction, unsigned int address):
@@ -58,17 +59,20 @@ IFormat::~IFormat() {};
 
 // --- Calc Instructions Funcs ---
 
+// Method to calculate I Format OP Codes
 void IFormat::calcOPCode() {
     unsigned int OpCodeMask = 0b111111<<26;
     this->OpCode = (OpCodeMask & getHexInstruction())>>26;
 }
 
+// Method to check if OPCode is a branch instruction
 void IFormat::boolBranch() {
     if(this->OpCode == branches[0] || this->OpCode == branches[1]){
         branchYesOrNo = true;
     }
 }
 
+// Method to calculate I Format instruction sets
 void IFormat::calcInstructionSet() {
         signed short MemMask = 0b11111;
         unsigned int OffsetMask = 0b1111111111111111;
@@ -100,6 +104,7 @@ void IFormat::calcInstructionSet() {
         }
 }
 
+// Method to calculate the branch address
 void IFormat::calcBranch() {
     unsigned int startBranchAddy = this->getAddress() + 4;
     signed short correctOffset = offset << 2;
@@ -107,7 +112,7 @@ void IFormat::calcBranch() {
 }
 
 
-// --- Get Functions ---
+// --- Get Functions (Used for debugging only) ---
 unsigned int IFormat::getOpCode() const {return this->OpCode;}
 unsigned int IFormat::getMemory1() const {return this->memory1;}
 unsigned int IFormat::getDestReg() const {return this->destReg;}
