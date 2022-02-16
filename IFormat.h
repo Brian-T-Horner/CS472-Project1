@@ -4,6 +4,8 @@
 // Author: Brian Horner
 // Edit History:
 // 2/13/2022 Initial Version
+// 2/13/2022 Added methods and data members
+// 2/16/2022 Added detailed comments
 
 #ifndef IFormat_H
 #define IFormat_H
@@ -24,9 +26,6 @@ public:
     void calcInstructionSet();
     void calcBranch();
     void boolBranch();
-
-
-    // --- Set Functions ---
 
 
     // --- Get Functions ---
