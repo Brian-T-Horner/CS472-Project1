@@ -53,40 +53,42 @@ InstructionSet
 // --- Destructor ---
 RFormat::~RFormat() {};
 
-// --- Calc Instructions Funcs ---
+// Function to calculate R Format Op Code
 void RFormat::calcOPCode() {
     unsigned int OpCodeMask = 0b111111<<26;
     this->OpCode = (OpCodeMask & getHexInstruction())>>26;
 }
 
+// Function to calculate R Format Instructions with Bitwise Masks and Shifts
 void RFormat::calcInstructionSet() {
+        // Masks for 5 bit and 6 bit masks
     unsigned int MemMask = 0b11111;
     unsigned int FuncMask = 0b111111;
     unsigned int MaskShift{32};
     for(unsigned int i{0}; i<=5; i++){
         switch(i){
-            case 0 :
+            case 0 : // OpCode mask shift
                 MaskShift -= 6;
                 break;
-            case 1:
+            case 1: // Mem 1 mask shift
                 MaskShift -= 5;
                 this->memory1 = ((MemMask<<MaskShift)&getHexInstruction())
                         >>MaskShift;
                 break;
-            case 2:
+            case 2: // Mem 2 mask shift
                 MaskShift -=5;
                 this->memory2 = ((MemMask<<MaskShift)&getHexInstruction())
                         >>MaskShift;
                 break;
-            case 3:
+            case 3: // Dest reg mask shift
                 MaskShift -=5;
                 this->destReg = ((MemMask<<MaskShift)& getHexInstruction())
                         >>MaskShift;
                 break;
-            case 4:
+            case 4: // Skipped bits mask shift
                 MaskShift-=5;
                 break;
-            case 5:
+            case 5: // Func code mask shifts
                 MaskShift -=6;
                 this->funcCode = (((FuncMask<<MaskShift)&getHexInstruction())
                         >>MaskShift);
@@ -96,25 +98,17 @@ void RFormat::calcInstructionSet() {
                 break;
         }
     }
-//    std::cout << "OPCode " <<std::bitset<6>(this->OpCode) << ".\n";
-//    std::cout << "Mem1 " <<std::bitset<5>(this->memory1) << ".\n";
-//    std::cout << "Mem2 " <<std::bitset<5>(this->memory2) << ".\n";
-//    std::cout << "Dest Reg " <<std::bitset<5>(this->destReg) << ".\n";
-//    std::cout <<"funcCode " <<std::bitset<6>(this->funcCode) << ".\n";
-
 }
-// --- Set Functions ---
 
 
-// --- Get Functions ---
-// !! Need to make return in hex !!
+// --- Get Functions (Used for debugging) ---
+
 unsigned int RFormat::getMemory1() const {return this->memory1;}
 unsigned int RFormat::getMemory2() const {return this->memory2;}
 unsigned int RFormat::getDestReg() const {return this->destReg;}
 unsigned int RFormat::getFuncCode() const {return this->funcCode;}
 
-// -- Virtual Write and Print Functions
-
+// -- Virtual Print Function
 void RFormat::writeToTerminal() const {
     InstructionSet::writeToTerminal();
     std::cout <<  FuncCodeDict.at(this->funcCode) <<" $" <<this->destReg <<
